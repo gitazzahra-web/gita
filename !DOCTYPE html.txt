@@ -1,60 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastel Moving Text</title>
+    <title>Welcome Page</title>
     <style>
         body {
-            background-color: #ffebcd;
+            background-color: #0000FF;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            position: relative;
+            margin: 0;
         }
-        .word {
-            position: absolute;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #6a5acd;
+        h1 {
+            color: #FFDD99;
+            font-size: 3rem;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <script>
-        const words = ["Hallo", "Dunia", "Coding", "Asik", "Banget"];
-        
-        words.forEach((word, index) => {
-            let span = document.createElement("span");
-            span.className = "word";
-            span.textContent = word;
-            document.body.appendChild(span);
-            
-            let x = Math.random() * window.innerWidth;
-            let y = Math.random() * window.innerHeight;
-            span.style.left = `${x}px`;
-            span.style.top = `${y}px`;
-            
-            let dx = (Math.random() - 0.5) * 4;
-            let dy = (Math.random() - 0.5) * 4;
-            
-            function move() {
-                x += dx;
-                y += dy;
-                
-                if (x < 0 || x > window.innerWidth - 100) dx *= -1;
-                if (y < 0 || y > window.innerHeight - 50) dy *= -1;
-                
-                span.style.left = `${x}px`;
-                span.style.top = `${y}px`;
-                
-                requestAnimationFrame(move);
-            }
-            move();
-        });
-    </script>
+    <h1>Welcome to My Web Guys!</h1>
 </body>
 </html>
